@@ -1,0 +1,24 @@
+{%extends 'index.html'%}
+
+{% block content%}
+
+<br></br>
+
+<div class="position-relative">
+    <div class='shadow p-4 mb-5 bg-body rounded position-absolute top-0 start-50 translate-middle-x' style='width: 500px; height: 900px;'>
+        <form action='{% url 'signup'%}' method='post'>
+            {% csrf_token %}
+
+                {{form.as_p}}
+                <br></br>
+                <button type='submit' class='btn btn-success'>ثبت نام</button>
+        </form>
+    </div>
+</div>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+<br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+<footer class="py-5 bg-dark">
+</footer>
+
+
+{% endblock content%}

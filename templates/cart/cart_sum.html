@@ -1,0 +1,60 @@
+{% extends "index.html" %}
+
+{% block content %}
+</br></br>
+
+<h1 class= 'text-center'>سبد خرید {{myfirst}} {{mylast}} </h1>
+{% if cart_items%}
+    </br>
+    <div class='position-relative'>
+        <div class="card position-absolute top-0 start-50 translate-middle-x" style="width:500px">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>محصول</th>
+                        <th>تعداد</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in cart_items %}
+                        <tr>
+                            <td>{{ item.product }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td><a class="btn btn-danger" href="{% url 'cart:cart_del' item.id %}">حذف کردن</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class= 'position-relative'>
+                <ul class="list-unstyled">
+                    <li><a class="btn btn-secondary position-absolute start-50 translate-middle-x" href="{% url "homepage"%}" role="button" style="width: 200px">برگشت به همه محصولات</a></li>
+                    </br></br>
+                    <li><a class="btn btn-success position-absolute start-50 translate-middle-x" href="#" role="button" style="width: 200px">حساب کردن</a></li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+
+{% else %}
+</br>
+<div class='position-relative'>
+    <div class="alert alert-danger alert-dismissible fade show top-0 start-50 translate-middle-x d-flex justify-content-center" role="alert" style ="width: 300px;">
+        سبد خرید شما خالی است!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+</div>
+</br>
+    <div class= 'position-relative'>
+        <ul class="list-unstyled">
+            <li><a class="btn btn-secondary position-absolute start-50 translate-middle-x" href="{% url "homepage"%}" role="button" style="width: 200px">برگشت به همه محصولات</a></li>
+            </br></br>
+            <li><a class="btn btn-success position-absolute start-50 translate-middle-x" href="{% url "cart:cart_sum"%}" role="button" style="width: 200px" >حساب کردن</a></li>
+        </ul>
+    </div>
+</div>
+{% endif %}
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+{% endblock content %}

@@ -1,0 +1,27 @@
+{%extends 'index.html'%}
+
+{% block content%}
+    <form method='post'>
+        {% csrf_token %}
+        <br></br>
+        <div class='position-relative'>
+            <div class='shadow p-4 mb-5 bg-body rounded position-absolute top-0 start-50 translate-middle-x' style='width: 350px; height: 400px;'>
+                <form>
+                    <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">یوزر</label>
+                    <input type="text" class="form-control" name="username" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">رمز</label>
+                    <input type="password" class="form-control" name="password">
+                    </div>
+                    <button type='submit' class='btn btn-success'>ثبت</button>
+                </form>
+            </div>
+        </div>
+    </form>
+    <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+    <footer class="py-5 bg-dark">
+    </footer>
+
+{% endblock content%}

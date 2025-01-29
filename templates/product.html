@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}
+{% endblock title %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+{%block content%}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Product Images -->
+        <div class="col-md-6 mb-4">
+            <img src="{{product.image.url}}" alt="Product" class="img-fluid rounded mb-3 product-image" id="mainImage">
+        </div>
+
+        <!-- Product Details -->
+        <div class="col-md-6">
+            <h2 class="mb-3 d-flex flex-row-reverse">{{product.name}}</h2>
+            <p class="text-muted mb-4 d-flex flex-row-reverse">دسته بندی: {{product.category}} </p>
+            <div class="mb-3">
+                <span class="h4 me-2 d-flex flex-row-reverse">قیمت: {{product.price}} ریال</span>
+            </div>
+
+            <p class="mb-4 d-flex justify-content-end">{{product.description}}</p>
+
+            {{ message }}
+            <div class="d-flex flex-row-reverse card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <form method="post">
+                    {% csrf_token %}
+                    <input type="submit" value="اضافه به سبد" class="btn btn-outline-dark mt-auto">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</br>
+{%endblock content%}
